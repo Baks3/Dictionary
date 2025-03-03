@@ -21,7 +21,7 @@ This is a simple translation dictionary application written in Python. It reads 
 ## Usage
 1. Run the script using the following command:
     ```sh
-    python translate.py
+    python3 main.py
     ```
 2. Enter the word you want to search for when prompted.
 3. The application will display the translation if the word exists in the dictionary.
