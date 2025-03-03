@@ -15,14 +15,20 @@ def load_data(file_path):
         return None
 
 def get_user_input():
+    exit_commands = ['exit', 'quit', 'q']  
+
     while True:
-        word = input("Enter the word you want to search (or type 'exit' to quit): ").strip()
-        if word.lower() == 'exit':
-            return None
-        elif not word:
-            print("Error: No word entered. Please try again.")
-        else:
-            return word
+        word = input("Enter the word you want to search (or type 'exit', 'quit', or 'q' to quit): ").strip()
+
+        if not word:
+            print("⚠️ Error: No word entered. Please try again.")
+            continue  
+        
+        if word.lower() in exit_commands:
+            return None  
+        
+        return word  
+
 
 def translate(word, data):
     if data is None:
