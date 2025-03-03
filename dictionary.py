@@ -1,6 +1,7 @@
 import json
 
-data = json.load(open("data.json"))
+with open("data.json") as file:
+    data = json.load(file)
 
 def translate(word):
     word = word.lower()
@@ -11,7 +12,7 @@ def translate(word):
 
 
 
-word = input("Enter the word you want to search")
+word = input("Enter the word you want to search: ")
 output = translate(word)
 if isinstance(output, list):
     for item in output:
