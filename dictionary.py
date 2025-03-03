@@ -1,4 +1,5 @@
 import json
+from difflib import get_close_matches
 
 def load_data(file_path):
     try:
@@ -26,12 +27,13 @@ def get_user_input():
 def translate(word, data):
     if data is None:
         return "Error: Data could not be loaded."
+
+    word_lower = word.lower()
+    if word_lower in data:
+        return data[word_lower]
+    
+    matches = get_close_matches(word_lower, data.keys(), n=3, cutoff=0.7)
+    if matches:
+        return f"Word cannot be found! Did you mean: {', '.join(matches)}?"
         
-    if word.lower() in data:
-        return data[word.lower()]
-    elif word.upper() in data:
-        return data[word.upper()]
-    elif word.title() in data:
-        return data[word.title()]
-    else:
-        return "Word cannot be found!"
+    return "Word cannot be found!"
