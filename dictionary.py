@@ -15,11 +15,13 @@ def load_data(file_path):
 def translate(word, data):
     if data is None:
         return "Error: Data could not be loaded."
-
-    word = word.lower()
-
-    if word in data:
-        return data[word]
+        
+    if word.lower() in data:
+        return data[word.lower()]
+    elif word.upper() in data:
+        return data[word.upper()]
+    elif word.title() in data:
+        return data[word.title()]
     else:
         return "Word cannot be found!"
 
