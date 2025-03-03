@@ -4,11 +4,11 @@ import dictionary
 def main():
     data = dictionary.load_data("data.json")
 
-    word = input("Enter the word you want to search: ").strip()
-
-    if not word:
-        print("Error: No word entered. Please try again.")
-    else:
+    while True:
+        word = dictionary.get_user_input()
+        if word is None:
+            print("Exiting the program. Goodbye!")
+            break
         output = dictionary.translate(word, data)
 
         if isinstance(output, list):
@@ -16,7 +16,6 @@ def main():
                 print(item)
         else:
             print(output)
-
 
 if __name__ == "__main__":
     main()
