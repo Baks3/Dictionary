@@ -1,4 +1,5 @@
 import dictionary
+import time
 
 
 def main():
@@ -7,9 +8,14 @@ def main():
     while True:
         word = dictionary.get_user_input()
         if word is None:
-            print("Exiting the program. Goodbye!")
+            print("Exiting the program...")
+            time.sleep(1)
+            print("Goodbye!")
             break
         output = dictionary.translate(word, data)
+
+        print("Fetching word...")
+        time.sleep(1) 
 
         if isinstance(output, list):
             for item in output:
