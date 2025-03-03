@@ -24,18 +24,3 @@ def translate(word, data):
         return data[word.title()]
     else:
         return "Word cannot be found!"
-
-data = load_data("data.json")
-
-word = input("Enter the word you want to search: ").strip()
-
-if not word:
-    print("Error: No word entered. Please try again.")
-else:
-    output = translate(word, data)
-
-    if isinstance(output, list):
-        for item in output:
-            print(item)
-    else:
-        print(output)
