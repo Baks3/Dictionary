@@ -4,8 +4,7 @@ import time
 
 def main():
     data = dictionary.load_data("data.json")
-    print("Enter a word to look up (or type 'exit' to quit):")
-
+    
     try: 
         while True:
             word = dictionary.get_user_input()
