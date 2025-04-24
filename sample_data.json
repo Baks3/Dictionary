@@ -1,0 +1,9 @@
+{
+    "apple": ["A fruit that grows on trees."],
+    "python": {
+      "definition": "A programming language.",
+      "synonyms": ["py"],
+      "example": "Python is popular for web development."
+    }
+  }
+  
